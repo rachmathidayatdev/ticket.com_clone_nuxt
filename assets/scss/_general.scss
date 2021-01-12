@@ -1,0 +1,65 @@
+// font
+$fontSizeLength: ();
+@for $i from 0 through 100 {
+	$fontSizeLength: append($fontSizeLength, $i);
+}
+
+@each $i in $fontSizeLength {
+	&.font-#{$i} {
+		font-size: #{$i}px;
+	}
+}
+
+// margin
+$marginLength: ();
+@for $i from 0 through 100 {
+	$marginLength: append($marginLength, $i);
+}
+
+@each $i in $marginLength {
+	.m-#{$i} {
+		margin: #{$i}px;
+	}
+	.mt-#{$i} {
+		margin-top: #{$i}px;
+	}
+	.mb-#{$i} {
+		margin-bottom: #{$i}px;
+	}
+	.ml-#{$i} {
+		margin-left: #{$i}px;
+	}
+	.mr-#{$i} {
+		margin-right: #{$i}px;
+	}
+}
+
+// padding
+$paddingLength: ();
+@for $i from 0 through 100 {
+	$paddingLength: append($paddingLength, $i);
+}
+
+@each $i in $paddingLength {
+	.p-#{$i} {
+		padding: #{$i}px;
+	}
+	.pt-#{$i} {
+		padding-top: #{$i}px;
+	}
+	.pb-#{$i} {
+		padding-bottom: #{$i}px;
+	}
+	.pl-#{$i} {
+		padding-left: #{$i}px;
+	}
+	.pr-#{$i} {
+		padding-right: #{$i}px;
+	}
+}
+
+// body
+.mobile-body {
+	// max-height: calc(100vh - 100px);
+	overflow: scroll;
+}

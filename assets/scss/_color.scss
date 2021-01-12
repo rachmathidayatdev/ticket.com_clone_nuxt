@@ -1,0 +1,31 @@
+$colors: (
+  transparent: transparent,
+  black: #000000,
+  white: #ffffff,
+  mariner: #296ebd,
+);
+
+// mixin
+@mixin text-color($map) {
+	@each $color-name, $color in $map {
+		@if not map-has-key($map, $color-name) {
+			@warn "'#{$color-name}' is not a valid color name";
+		} @else {
+			&.font-color-#{$color-name} {
+				color: $color;
+			}
+		}
+	}
+}
+
+@mixin bg-color($map) {
+	@each $bg-name, $color in $map {
+		@if not map-has-key($map, $bg-name) {
+			@warn "'#{$bg-name}' is not a valid bg name";
+		} @else {
+			&.bg-color-#{$bg-name} {
+				background: $color;
+			}
+		}
+	}
+}

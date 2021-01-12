@@ -1,0 +1,94 @@
+@import '~/assets/scss/global';
+@import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+
+.home {
+  .banner {
+    position: relative;
+    background-color: map-get($colors, mariner);
+    height: 200px;
+    width: 100%;
+    clip-path: polygon(
+      0% 0%, /** kiri atas */
+      100% 0%, /** kanan atas */
+      100% 20%, 
+      100% 90%, 
+      95% 91%, 
+      90% 92%, 
+      85% 93%, 
+      80% 94%, 
+      75% 95%, 
+      70% 96%, 
+      65% 97%, 
+      60% 98%, 
+      55% 99%, 
+      50% 99.5%,
+      50% 99.5%,
+      45% 99%,
+      40% 98%, 
+      35% 97%, 
+      30% 96%, 
+      25% 95%, 
+      20% 94%, 
+      15% 93%, 
+      10% 92%, 
+      5% 91%, 
+      0% 90%, 
+      0% 20%
+    );
+
+    img, .banner-item {
+      height: 150px;
+      width: 85%;
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .banner-footer {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      padding: 0 .75rem 0 .75rem;
+
+      .count-item {
+        border: 1px solid map-get($colors, white);
+        border-radius: 5px;
+        padding: 5px 10px 5px 10px;
+      }
+
+      .promo {
+        border-radius: 5px;
+        padding: 5px;
+      }
+    }
+  }
+
+  .feature {
+    padding: .5rem .75rem .5rem .75rem;
+
+    .feature-container {
+      .feature-item {
+        .item-icon--box {
+          box-shadow: 0 5px 10px 1px rgba(0,0,0,.08);
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
+  .penawaran {
+    padding: .5rem .75rem .5rem .75rem;
+  }
+
+  .bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: map-get($colors, white);
+    box-shadow: 0px -4px 3px rgba(0,0,0,.08);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: .5rem .75rem .5rem .75rem;
+  }
+}

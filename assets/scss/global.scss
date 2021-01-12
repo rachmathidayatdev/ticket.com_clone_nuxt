@@ -1,0 +1,24 @@
+@import './general';
+@import './color';
+
+// .slide-left-leave-active,
+.slide-left-enter-active {
+  transition: .2s;
+}
+.slide-left-enter {
+  transform: translate(100%, 0);
+}
+// .slide-left-leave-to {
+//   transform: translate(-100%, 0);
+// }
+
+// .slide-bottom-leave-active,
+.slide-bottom-enter-active {
+  transition: .2s;
+}
+.slide-bottom-enter {
+  transform: translate(0, 100%);
+}
+// .slide-bottom-leave-to {
+//   transform: translate(0, -100%);
+// }
