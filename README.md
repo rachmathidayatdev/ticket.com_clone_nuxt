@@ -1,4 +1,4 @@
-# ticket_vue
+# ticket.com_clone_nuxt
 
 ## Build Setup
 
