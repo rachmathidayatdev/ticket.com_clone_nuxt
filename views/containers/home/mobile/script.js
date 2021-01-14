@@ -100,6 +100,12 @@ export default {
 				arrows: false,
 				swipe: true,
 			},
+			currentPositionCarouselMain: 0,
 		}
+	},
+	methods: {
+		beforeChangeCarouselMain({ currentPosition, nextPosition }) {
+			this.currentPositionCarouselMain = nextPosition
+		},
 	},
 }

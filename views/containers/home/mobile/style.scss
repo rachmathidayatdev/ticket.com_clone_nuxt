@@ -36,13 +36,9 @@
       0% 20%
     );
 
-    img, .banner-item {
-      height: 150px;
-      width: 85%;
-      position: absolute;
-      top: 15px;
-      left: 50%;
-      transform: translateX(-50%);
+    .banner-item {
+      height: 190px;
+      width: 100%;
     }
 
     .banner-footer {

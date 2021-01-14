@@ -61,7 +61,7 @@ export default {
 	bottom: 0;
 	width: 100%;
 	background-color: map-get($colors, white);
-	box-shadow: 0px -4px 3px rgba(0, 0, 0, 0.08);
+	box-shadow: 0px -4px 3px map-get($colors, box-shadow);
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 	padding: 0.5rem 0.75rem 0.5rem 0.75rem;

@@ -3,10 +3,24 @@
 		<Column class="mobile-body">
 			<!-- banner -->
 			<Column class="banner" background="mariner">
-				<img :src="images.banner" class="banner-item" />
+				<Carousel
+					custom-class="mt-10 pl-20"
+					:settings="{
+						...sliderSettings,
+						autoplay: true,
+					}"
+					@beforeChange="beforeChangeCarouselMain"
+				>
+					<div v-for="(item, index) in bannerList" :key="index" class="pr-15">
+						<img :src="item.imageUrl" class="banner-item" />
+					</div>
+				</Carousel>
 				<Row justify-content="space-between" class="banner-footer">
 					<Row class="count-item">
-						<TextView custom-class="font-12" font-color="white">1 / 6</TextView>
+						<TextView custom-class="font-12" font-color="white"
+							>{{ currentPositionCarouselMain + 1 }} /
+							{{ bannerList.length }}</TextView
+						>
 					</Row>
 					<Row class="promo" background="mariner">
 						<TextView custom-class="font-12" font-color="white"
@@ -23,7 +37,7 @@
 				>
 				<GridView
 					custom-class="feature-container mt-20"
-					cols="3"
+					cols="4"
 					grid-row-gap="20px"
 					grid-col-gap="20px"
 				>

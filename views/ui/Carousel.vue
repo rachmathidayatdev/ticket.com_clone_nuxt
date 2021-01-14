@@ -1,6 +1,16 @@
 <template>
 	<div :id="id" :class="classes">
-		<VueSlickCarousel v-bind="settings">
+		<VueSlickCarousel
+			v-bind="settings"
+			@init="init"
+			@reInit="reInit"
+			@lazyLoad="lazyLoad"
+			@lazyLoadError="lazyLoadError"
+			@beforeChange="beforeChange"
+			@afterChange="afterChange"
+			@edge="edge"
+			@swipe="swipe"
+		>
 			<slot />
 		</VueSlickCarousel>
 	</div>
@@ -30,6 +40,20 @@ export default {
 
 			return (classes.length && classes.join(' ')) || null
 		},
+	},
+	methods: {
+		init() {},
+		reInit() {},
+		lazyLoad() {},
+		lazyLoadError() {},
+		beforeChange(currentPosition, nextPosition) {
+			this.$emit('beforeChange', { currentPosition, nextPosition })
+		},
+		afterChange(currentPosition) {
+			this.$emit('afterChange', currentPosition)
+		},
+		edge() {},
+		swipe() {},
 	},
 }
 </script>
