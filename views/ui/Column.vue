@@ -1,5 +1,5 @@
 <template>
-	<div :id="id" :class="classes" :style="styleCustom">
+	<div :id="id" :class="classes" :style="styleCustom" @click="onClick">
 		<slot />
 	</div>
 </template>
@@ -10,11 +10,12 @@ export default {
 		id: { type: String, default: null },
 		customClass: { type: String, default: null },
 		col: { type: [String, Number], default: 12 },
-		alignItems: { type: String, default: 'align-items-normal' },
-		justifyContent: { type: String, default: 'justify-content-normal' },
-		background: { type: String, default: 'transparent' },
+		alignItems: { type: String, default: 'normal' },
+		justifyContent: { type: String, default: 'normal' },
+		background: { type: String, default: null },
 		width: { type: String, default: 'auto' },
 		height: { type: String, default: 'auto' },
+		onClick: { type: Function, default: () => {} },
 	},
 	computed: {
 		classes() {

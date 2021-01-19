@@ -9,9 +9,9 @@ export default {
 	props: {
 		id: { type: String, default: null },
 		customClass: { type: String, default: null },
-		alignItems: { type: String, default: 'align-items-normal' },
-		justifyContent: { type: String, default: 'justify-content-normal' },
-		background: { type: String, default: 'transparent' },
+		alignItems: { type: String, default: 'normal' },
+		justifyContent: { type: String, default: 'normal' },
+		background: { type: String, default: null },
 		width: { type: String, default: 'auto' },
 		height: { type: String, default: 'auto' },
 	},

@@ -1,6 +1,10 @@
 @import './general';
 @import './color';
 
+body {
+	background-color: map-get($colors, body-bg);
+}
+
 // .slide-left-leave-active,
 .slide-left-enter-active {
   transition: .2s;

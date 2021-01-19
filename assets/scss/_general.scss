@@ -10,6 +10,14 @@ $fontSizeLength: ();
 	}
 }
 
+// position
+$position: 'relative', 'absolute';
+@each $i in $position {
+	.position-#{$i} {
+		position: #{$i};
+	}
+}
+
 // margin
 $marginLength: ();
 @for $i from 0 through 100 {
@@ -19,6 +27,14 @@ $marginLength: ();
 @each $i in $marginLength {
 	.m-#{$i} {
 		margin: #{$i}px;
+	}
+	.mx-#{$i} {
+		margin-left: #{$i}px;
+		margin-right: #{$i}px;
+	}
+	.my-#{$i} {
+		margin-top: #{$i}px;
+		margin-bottom: #{$i}px;
 	}
 	.mt-#{$i} {
 		margin-top: #{$i}px;
@@ -43,6 +59,14 @@ $paddingLength: ();
 @each $i in $paddingLength {
 	.p-#{$i} {
 		padding: #{$i}px;
+	}
+	.px-#{$i} {
+		padding-left: #{$i}px;
+		padding-right: #{$i}px;
+	}
+	.py-#{$i} {
+		padding-top: #{$i}px;
+		padding-bottom: #{$i}px;
 	}
 	.pt-#{$i} {
 		padding-top: #{$i}px;

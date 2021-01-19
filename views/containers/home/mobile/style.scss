@@ -66,7 +66,7 @@
     .feature-container {
       .feature-item {
         .item-icon--box {
-          box-shadow: 0 5px 10px 1px rgba(0,0,0,.08);
+          box-shadow: 0 5px 10px 1px map-get($colors, box-shadow);
           border-radius: 10px;
         }
       }
@@ -82,7 +82,7 @@
     bottom: 0;
     width: 100%;
     background-color: map-get($colors, white);
-    box-shadow: 0px -4px 3px rgba(0,0,0,.08);
+    box-shadow: 0px -4px 3px map-get($colors, box-shadow);
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     padding: .5rem .75rem .5rem .75rem;

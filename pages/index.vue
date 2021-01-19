@@ -6,6 +6,7 @@
 import { initMobileDevice } from '~/helpers/general'
 
 export default {
+	transition: 'slide-left',
 	components: {
 		PageContainer: () => import('~/views/containers/home'),
 	},

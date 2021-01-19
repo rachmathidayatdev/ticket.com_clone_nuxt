@@ -3,7 +3,6 @@ import ICONS from '~/constants/icons'
 import ROUTES from '~/constants/routes'
 
 export default {
-	transition: 'slide-left',
 	components: {
 		Row: () => import('~/views/ui/Row'),
 		Column: () => import('~/views/ui/Column'),
