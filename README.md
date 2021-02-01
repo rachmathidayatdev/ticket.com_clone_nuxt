@@ -17,6 +17,8 @@ $ yarn start
 $ yarn generate
 ```
 
+For use display mobile you can switch in inspect element and choose toogle device toolbar
+
 # Screenshoot
 <img width="322" alt="1" src="https://github.com/rachmathidayatdev/ticket.com_clone_nuxt/blob/master/static/screenshoot/desktop-home.png">
 <img width="322" alt="1" src="https://github.com/rachmathidayatdev/ticket.com_clone_nuxt/blob/master/static/screenshoot/mobile-home.png">
