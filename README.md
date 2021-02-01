@@ -1,4 +1,4 @@
-# ticket.com_clone_nuxt
+# ticket.com clone with nuxt
 
 ## Build Setup
 
