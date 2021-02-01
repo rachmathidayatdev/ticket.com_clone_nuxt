@@ -5,7 +5,7 @@
 
   .curve {
     position: relative;
-    background-color: map-get($colors, mariner);
+    background-color: map-get($colors, scienceBlue);
     height: 200px;
     width: 100%;
     clip-path: polygon(
@@ -62,14 +62,14 @@
         right: 5px;
         border: 1px solid map-get($colors, heather);
         border-radius: 50px;
-        padding: 5px;
+        @extend .p-5;
       }
 
       .btn {
-        background-color: #fedd00;
-        color: #0064d2;
+        background-color: map-get($colors, yellow);
+        color: map-get($colors, scienceBlue);
         border-radius: 20px;
-        padding: 10px;
+        @extend .p-10;
         width: 100%;
         font-weight: 700;
       }

@@ -3,7 +3,7 @@
 		justify-content="space-between"
 		align-items="center"
 		class="navbar"
-		background="mariner"
+		background="scienceBlue"
 		width="100%"
 	>
 		<Row v-if="backButton" align-items="center">
@@ -17,11 +17,12 @@
 				custom-class="font-14 pl-10"
 				font-color="white"
 				font-weight="700"
-				>Pesawat</TextView
 			>
+				Pesawat
+			</TextView>
 		</Row>
 		<img v-else :src="images.ticketLogo" width="100" height="30" />
-		<TextView custom-class="font-12" font-color="white">Rp 1.700</TextView>
+		<TextView custom-class="font-12" font-color="white"> Rp 1.700 </TextView>
 	</Row>
 </template>
 

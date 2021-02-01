@@ -1,6 +1,7 @@
 <template>
 	<div :id="id" :class="classes">
 		<VueSlickCarousel
+			:ref="customRef"
 			v-bind="settings"
 			@init="init"
 			@reInit="reInit"
@@ -22,6 +23,7 @@ export default {
 		VueSlickCarousel: () => import('vue-slick-carousel'),
 	},
 	props: {
+		customRef: { type: String, default: 'carousel' },
 		id: { type: String, default: null },
 		customClass: { type: String, default: null },
 		settings: { type: Object, default: () => {} },
@@ -60,9 +62,6 @@ export default {
 
 <style lang="scss">
 @import 'vue-slick-carousel/dist/vue-slick-carousel.css';
-
-.carousel {
-}
 
 .slick-list {
 	padding: 0 20px 0 0 !important;

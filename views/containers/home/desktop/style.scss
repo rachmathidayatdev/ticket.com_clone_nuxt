@@ -1,0 +1,156 @@
+@import '~/assets/scss/global';
+
+.home {
+  background-color: map-get($colors, white);
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+      @extend .position-relative;
+      float: left;
+      @extend .p-10;
+      @extend .cursor-pointer;
+
+      &:hover {
+        div {
+          color: map-get($colors, mariner);
+        }
+
+        &:after {
+          border-bottom: 1px solid map-get($colors, mariner);
+          content: '';
+          @extend .position-absolute;
+          left: 0;
+          right: 0;
+          width: 50%;
+          bottom: 0;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .banner {
+    @extend .position-relative;
+    background-color: map-get($colors, mariner);
+    height: 350px;
+
+    .banner-item {
+      height: 300px;
+      width: 100%;
+    }
+
+    .prev-icon {
+      @extend .position-absolute;
+      left: 22.5%;
+      top: 40%;
+      @extend .cursor-pointer;
+    }
+
+    .next-icon {
+      @extend .position-absolute;
+      right: 22.5%;
+      top: 40%;
+      @extend .cursor-pointer;
+    }
+
+    .slick-dots {
+      @extend .position-absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      li {
+        @extend .p-5;
+
+        .dots-item {
+          width: 8px;
+          height: 8px;
+          @extend .border-radius-20;
+          background-color: map-get($colors, heather);
+  
+          &.active {
+            background-color: map-get($colors, white);
+          }
+        }
+      }
+    }
+  }
+
+  .feature-container {
+    @extend .position-relative;
+    @extend .px-200;
+
+    .feature {
+      @extend .position-absolute;
+      width: 75%;
+      top: -48px;
+      background-color: map-get($colors, white);
+      @extend .border-radius-8;
+      box-shadow: 0 2px 6px 0 map-get($colors, box-shadow);
+
+      .feature-item {
+        border: 1px solid map-get($colors, moon);
+        @extend .border-radius-10;
+
+        &:hover {
+          border: 1px solid map-get($colors, scienceBlue);
+        }
+      }
+
+      .schedule {
+        div:first-child.schedule-item {
+          border-left: none;
+          border-right: none;
+          @extend .pl-40;
+        }
+
+        div:last-child.schedule-item {
+          border-left: none;
+          border-right: none;
+          @extend .pr-40;
+        }
+        
+        .schedule-item {
+          border: 1px solid map-get($colors, moon);
+          @extend .py-20;
+          @extend .px-10;
+        }
+      }
+
+      .btn {
+        background-color: map-get($colors, yellow);
+        color: map-get($colors, scienceBlue);
+        border-radius: 20px;
+        @extend .px-20;
+        @extend .py-10;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .kemudahan {
+    display: block;
+    background-image: url("https://www.tiket.com/home-ms/assets/bg.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: auto;
+
+    .kemudahan-box {
+      border: 30px solid aliceblue;
+      @extend .border-radius-5;
+      background-color: map-get($colors, white);
+
+      .kemudahan-item {
+        width: 100%;
+      }
+    }
+  }
+}

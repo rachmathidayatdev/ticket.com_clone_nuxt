@@ -1,5 +1,10 @@
 <template>
-	<div :id="id" :class="classes" :style="styleCustom" @click="onClick">
+	<div
+		:id="id"
+		:class="classes"
+		:style="styleCustom"
+		@click="onClick(payloadCustom)"
+	>
 		<slot />
 	</div>
 </template>
@@ -16,6 +21,7 @@ export default {
 		width: { type: String, default: 'auto' },
 		height: { type: String, default: 'auto' },
 		onClick: { type: Function, default: () => {} },
+		payloadCustom: { type: String, default: null },
 	},
 	computed: {
 		classes() {

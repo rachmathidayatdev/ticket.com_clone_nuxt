@@ -2,7 +2,7 @@
 	<div class="home">
 		<Column class="mobile-body">
 			<!-- banner -->
-			<Column class="banner" background="mariner">
+			<Column class="banner" background="scienceBlue">
 				<Carousel
 					custom-class="mt-10 pl-20"
 					:settings="{
@@ -17,24 +17,24 @@
 				</Carousel>
 				<Row justify-content="space-between" class="banner-footer">
 					<Row class="count-item">
-						<TextView custom-class="font-12" font-color="white"
-							>{{ currentPositionCarouselMain + 1 }} /
-							{{ bannerList.length }}</TextView
-						>
+						<TextView custom-class="font-12" font-color="white">
+							{{ currentPositionCarouselMain + 1 }} /
+							{{ bannerList.length }}
+						</TextView>
 					</Row>
 					<Row class="promo" background="mariner">
-						<TextView custom-class="font-12" font-color="white"
-							>Lihat Semua Promo</TextView
-						>
+						<TextView custom-class="font-12" font-color="white">
+							Lihat Semua Promo
+						</TextView>
 					</Row>
 				</Row>
 			</Column>
 
 			<!-- feature -->
 			<Column class="feature">
-				<TextView custom-class="font-14" font-weight="bold"
-					>Hey kamu, mau kemana ?</TextView
-				>
+				<TextView custom-class="font-14" font-weight="bold">
+					Hey kamu, mau kemana ?
+				</TextView>
 				<GridView
 					custom-class="feature-container mt-20"
 					cols="4"
@@ -59,8 +59,9 @@
 								custom-class="font-12 mt-10"
 								font-weight="500"
 								text-alignment="center"
-								>{{ item.label }}</TextView
 							>
+								{{ item.label }}
+							</TextView>
 						</Column>
 					</nuxt-link>
 				</GridView>
@@ -68,12 +69,12 @@
 
 			<!-- penawaran -->
 			<Column custom-class="penawaran" col="12" justify-content="center">
-				<TextView custom-class="font-14" font-weight="bold"
-					>Penawaran Spesial 2020</TextView
-				>
-				<TextView custom-class="font-12"
-					>Penawaran spesial khusus buat kamu lo!</TextView
-				>
+				<TextView custom-class="font-14" font-weight="bold">
+					Penawaran Spesial 2020
+				</TextView>
+				<TextView custom-class="font-12">
+					Penawaran spesial khusus buat kamu lo!
+				</TextView>
 				<Carousel
 					custom-class="mt-10"
 					:settings="{
@@ -87,7 +88,7 @@
 					</div>
 				</Carousel>
 			</Column>
-			<Row height="50px"></Row>
+			<Row height="50px" />
 		</Column>
 	</div>
 </template>

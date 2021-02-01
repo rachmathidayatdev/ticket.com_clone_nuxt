@@ -1,7 +1,11 @@
 <template>
 	<div :class="`bottom-sheet ${visible ? 'active' : ''}`">
 		<div class="bottom-sheet-backdrop" @click="closeBottomSheet">
-			<div class="bottom-sheet-container" :style="styleCustom">
+			<div
+				class="bottom-sheet-container p-10"
+				:style="styleCustom"
+				@click="onBodyClick"
+			>
 				<header>
 					<slot name="bottom-sheet-header" />
 				</header>
@@ -17,15 +21,26 @@
 export default {
 	props: {
 		visible: { type: Boolean, default: false },
-		height: { type: String, default: '100px' },
+		height: {
+			type: [String, Number],
+			default: process.client ? screen.height / 2 : 300,
+		},
+		maxHeight: {
+			type: [String, Number],
+			default: process.client ? screen.height - 36 : 736,
+		},
+		isRoundedHeader: { type: Boolean, default: true },
 	},
 	computed: {
 		styleCustom() {
-			const { height } = this
+			const { height, maxHeight, isRoundedHeader } = this
 
 			return {
-				'--height': height,
-				'--bottom': `-${height}`,
+				'--height': height > maxHeight ? `${maxHeight}px` : `${height}px`,
+				'--bottom': height > maxHeight ? `-${maxHeight}px` : `-${height}px`,
+				'--is-rounded-header': isRoundedHeader ? '20px' : '0px',
+				'--height-content':
+					height > maxHeight ? `${maxHeight - 50}px` : `${height - 50}px`,
 			}
 		},
 	},
@@ -33,11 +48,16 @@ export default {
 		closeBottomSheet() {
 			this.$emit('closeBottomSheet', false)
 		},
+		onBodyClick(e) {
+			e.stopPropagation()
+		},
 	},
 }
 </script>
 
 <style lang="scss">
+@import '~/assets/scss/global';
+
 .bottom-sheet {
 	position: absolute;
 	width: 100%;
@@ -52,13 +72,23 @@ export default {
 
 		.bottom-sheet-container {
 			position: absolute;
-			bottom: -100px;
-			height: 100px;
+			bottom: var(--bottom);
+			height: var(--height);
 			width: 100%;
-			background-color: white;
-			border-top-left-radius: 20px;
-			border-top-right-radius: 20px;
+			background-color: map-get($colors, white);
+			border-top-left-radius: var(--is-rounded-header);
+			border-top-right-radius: var(--is-rounded-header);
 			transition: all 0.3s ease;
+
+			.header {
+				@extend .max-line-1;
+				@extend .mb-10;
+			}
+
+			.body {
+				max-height: var(--height-content);
+				overflow: auto;
+			}
 		}
 	}
 
@@ -67,7 +97,7 @@ export default {
 
 		.bottom-sheet-backdrop {
 			.bottom-sheet-container {
-				bottom: 100px;
+				bottom: var(--height);
 				transform: translate(0, 100%);
 			}
 		}

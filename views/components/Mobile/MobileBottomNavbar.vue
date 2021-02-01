@@ -12,9 +12,9 @@
 			class="navbar-item"
 		>
 			<img :src="item.icon" height="20" width="20" />
-			<TextView custom-class="font-10" text-alignment="center">{{
-				item.label
-			}}</TextView>
+			<TextView custom-class="font-10" text-alignment="center">
+				{{ item.label }}
+			</TextView>
 		</Column>
 	</GridView>
 </template>

@@ -6,6 +6,7 @@ export default {
 		Row: () => import('~/views/ui/Row'),
 		TextView: () => import('~/views/ui/TextView'),
 		BottomSheet: () => import('~/views/ui/BottomSheet'),
+		TextInput: () => import('~/views/ui/TextInput'),
 	},
 	data() {
 		return {
@@ -15,16 +16,82 @@ export default {
 				seatIcon: ICONS.SEAT_ICON,
 				swapIcon: ICONS.SWAP_ICON,
 				userIcon: ICONS.USER_ICON,
+				roundedCloseIcon: ICONS.ROUNDED_CLOSE_ICON,
 			},
-			isBottomSheetShow: false,
+			isBottomSheetOriginShow: false,
+			isBottomSheetDestinationShow: false,
+			form: {
+				origin: '',
+				destination: '',
+			},
+			keywoard: {
+				origin: '',
+				destination: '',
+			},
+			locations: [
+				{
+					name: 'Bali',
+					country: 'Indonesia',
+					property: 9000,
+				},
+				{
+					name: 'Jakarta',
+					country: 'Indonesia',
+					property: 9000,
+				},
+				{
+					name: 'Bandung',
+					country: 'Jawa Barat, Indonesia',
+					property: 9000,
+				},
+				{
+					name: 'Surabaya',
+					country: 'Jawa Timur, Indonesia',
+					property: 9000,
+				},
+			],
 		}
 	},
-	methods: {
-		openBottomSheet() {
-			this.isBottomSheetShow = true
+	computed: {
+		locationFilter() {
+			return this.locations.filter(
+				(item) =>
+					item.name
+						.toLowerCase()
+						.includes(this.keywoard.origin.toLowerCase()) ||
+					item.name
+						.toLowerCase()
+						.includes(this.keywoard.destination.toLowerCase()),
+			)
 		},
-		closeBottomSheet() {
-			this.isBottomSheetShow = false
+	},
+	methods: {
+		openBottomSheetOrigin() {
+			this.isBottomSheetOriginShow = true
+		},
+		closeBottomSheetOrigin() {
+			this.isBottomSheetOriginShow = false
+		},
+		openBottomSheetDestination() {
+			this.isBottomSheetDestinationShow = true
+		},
+		closeBottomSheetDestination() {
+			this.isBottomSheetDestinationShow = false
+		},
+		onChange({ field, value }) {
+			this.keywoard[field] = value
+		},
+		clearValue({ field, defaultValue }) {
+			this.keywoard[field] = defaultValue
+		},
+		setValue(payload) {
+			const data = JSON.parse(payload)
+			const { field, value } = data
+
+			this.form[field] = value
+			this.keywoard[field] = ''
+			this.closeBottomSheetOrigin()
+			this.closeBottomSheetDestination()
 		},
 	},
 }

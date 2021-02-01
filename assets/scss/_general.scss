@@ -20,7 +20,7 @@ $position: 'relative', 'absolute';
 
 // margin
 $marginLength: ();
-@for $i from 0 through 100 {
+@for $i from 0 through 200 {
 	$marginLength: append($marginLength, $i);
 }
 
@@ -28,31 +28,54 @@ $marginLength: ();
 	.m-#{$i} {
 		margin: #{$i}px;
 	}
+	.m-#{$i}-rem {
+		margin: #{$i}rem;
+	}
 	.mx-#{$i} {
 		margin-left: #{$i}px;
 		margin-right: #{$i}px;
+	}
+	.mx-#{$i}-rem {
+		margin-left: #{$i}rem;
+		margin-right: #{$i}rem;
 	}
 	.my-#{$i} {
 		margin-top: #{$i}px;
 		margin-bottom: #{$i}px;
 	}
+	.my-#{$i}-rem {
+		margin-top: #{$i}rem;
+		margin-bottom: #{$i}rem;
+	}
 	.mt-#{$i} {
 		margin-top: #{$i}px;
+	}
+	.mt-#{$i}-rem {
+		margin-top: #{$i}rem;
 	}
 	.mb-#{$i} {
 		margin-bottom: #{$i}px;
 	}
+	.mb-#{$i}-rem {
+		margin-bottom: #{$i}rem;
+	}
 	.ml-#{$i} {
 		margin-left: #{$i}px;
 	}
+	.ml-#{$i}-rem {
+		margin-left: #{$i}rem;
+	}
 	.mr-#{$i} {
 		margin-right: #{$i}px;
+	}
+	.mr-#{$i}-rem {
+		margin-right: #{$i}rem;
 	}
 }
 
 // padding
 $paddingLength: ();
-@for $i from 0 through 100 {
+@for $i from 0 through 200 {
 	$paddingLength: append($paddingLength, $i);
 }
 
@@ -60,25 +83,95 @@ $paddingLength: ();
 	.p-#{$i} {
 		padding: #{$i}px;
 	}
+	.p-#{$i}-rem {
+		padding: #{$i}rem;
+	}
 	.px-#{$i} {
 		padding-left: #{$i}px;
 		padding-right: #{$i}px;
+	}
+	.px-#{$i}-rem {
+		padding-left: #{$i}rem;
+		padding-right: #{$i}rem;
 	}
 	.py-#{$i} {
 		padding-top: #{$i}px;
 		padding-bottom: #{$i}px;
 	}
+	.py-#{$i}-rem {
+		padding-top: #{$i}rem;
+		padding-bottom: #{$i}rem;
+	}
 	.pt-#{$i} {
 		padding-top: #{$i}px;
+	}
+	.pt-#{$i}-rem {
+		padding-top: #{$i}rem;
 	}
 	.pb-#{$i} {
 		padding-bottom: #{$i}px;
 	}
+	.pb-#{$i}-rem {
+		padding-bottom: #{$i}rem;
+	}
 	.pl-#{$i} {
 		padding-left: #{$i}px;
 	}
+	.pl-#{$i}-rem {
+		padding-left: #{$i}rem;
+	}
 	.pr-#{$i} {
 		padding-right: #{$i}px;
+	}
+	.pr-#{$i}-rem {
+		padding-right: #{$i}rem;
+	}
+}
+
+// ellipsis text
+$maxLine: ();
+@for $i from 1 through 20 {
+	$maxLine: append($maxLine, $i);
+}
+
+@each $i in $maxLine {
+	.max-line-#{$i} {
+		display: -webkit-box;
+		-webkit-line-clamp: #{$i};
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+	}
+}
+
+// border radius
+$borderRadiusLength: ();
+@for $i from 0 through 100 {
+	$borderRadiusLength: append($borderRadiusLength, $i);
+}
+
+@each $i in $paddingLength {
+	.border-radius-#{$i} {
+		border-radius: #{$i}px;
+	}
+	.border-top-left-radius-#{$i} {
+		border-top-left-radius: #{$i}px;
+	}
+	.border-top-right-radius-#{$i} {
+		border-top-right-radius: #{$i}px;
+	}
+	.border-bottom-right-radius-#{$i} {
+		border-bottom-right-radius: #{$i}px;
+	}
+	.border-bottom-left-radius-#{$i} {
+		border-bottom-left-radius: #{$i}px;
+	}
+}
+
+// cursor
+$cursor: 'pointer', 'none', 'no-drop', 'not-allowed';
+@each $i in $cursor {
+	&.cursor-#{$i} {
+		cursor: #{$i};
 	}
 }
 

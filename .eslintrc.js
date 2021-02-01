@@ -31,4 +31,11 @@ module.exports = {
 		],
 		'no-tabs': ['error', { allowIndentationTabs: true }],
 	},
+	settings: {
+		'import/resolver': {
+			node: {
+				extensions: ['.js', '.vue'],
+			},
+		},
+	},
 }

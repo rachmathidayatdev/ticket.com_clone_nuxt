@@ -6,7 +6,11 @@ $colors: (
   mariner: #296ebd,
   manatee: #8a93a7,
   heather: #c3c9d8,
-  pickledBlueWood: #35405a,
+	pickledBlueWood: #35405a,
+	zircon: #F6F9FF,
+	moon: #C7D6F5,
+	yellow: #FEDD00,
+	scienceBlue: #0064D2,
   box-shadow: rgba(0, 0, 0, 0.08),
 );
 
@@ -30,6 +34,18 @@ $colors: (
 		} @else {
 			&.bg-color-#{$bg-name} {
 				background: $color;
+			}
+		}
+	}
+}
+
+@mixin border-color($map) {
+	@each $border-name, $color in $map {
+		@if not map-has-key($map, $border-name) {
+			@warn "'#{$border-name}' is not a valid border name";
+		} @else {
+			&.border-color-#{$border-name} {
+				border-color: $color;
 			}
 		}
 	}
