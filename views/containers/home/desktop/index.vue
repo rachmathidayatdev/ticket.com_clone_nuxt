@@ -106,8 +106,11 @@
 
 			<!-- feature -->
 			<Row custom-class="feature-container">
-				<Column custom-class="feature">
-					<Row custom-class="px-40 py-20" background="zircon">
+				<Column custom-class="feature border-radius-10">
+					<Row
+						custom-class="px-40 py-20 border-top-left-radius-10 border-top-right-radius-10"
+						background="zircon"
+					>
 						<Column col="5">
 							<TextView custom-class="font-18" font-weight="300">
 								Hey, kamu
