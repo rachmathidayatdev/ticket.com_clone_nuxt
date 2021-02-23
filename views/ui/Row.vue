@@ -63,6 +63,7 @@ export default {
 .row {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	height: var(--height);
 	width: var(--width);
 
