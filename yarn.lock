@@ -902,6 +902,11 @@
     postcss "7.0.32"
     purgecss "^2.3.0"
 
+"@interactjs/types@1.10.3":
+  version "1.10.3"
+  resolved "https://registry.yarnpkg.com/@interactjs/types/-/types-1.10.3.tgz#1f22a4b369b1cac7fd4d1d57ced586aa6f836553"
+  integrity sha512-O4j/Iq8Xko0cv4WfNFMciVVSw1xROXaegd1hwZVCliuIA70b59iU++i3SyzygV4ZT1MuLjqtSUd0kHm5va+a8A==
+
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
@@ -6416,6 +6421,13 @@ inquirer@^7.3.3:
     string-width "^4.1.0"
     strip-ansi "^6.0.0"
     through "^2.3.6"
+
+interactjs@^1.10.3:
+  version "1.10.3"
+  resolved "https://registry.yarnpkg.com/interactjs/-/interactjs-1.10.3.tgz#b336ead97519aa1572862ed2f638b479d63ddc79"
+  integrity sha512-7YNmQmZLsl6ibptkHNtcMqzEGdtNGycRW9Hyhu+LKmoN6QqSZgBGXFn3UeFKBV6YpKqbMwaPd/G8FojTQ0kgQw==
+  dependencies:
+    "@interactjs/types" "1.10.3"
 
 invariant@^2.2.2:
   version "2.2.4"

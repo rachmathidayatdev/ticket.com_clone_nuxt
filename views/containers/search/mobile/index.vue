@@ -121,207 +121,205 @@
 				</Column>
 			</Row>
 
-			<!-- origin location -->
-			<BottomSheet
-				:visible="isBottomSheetOriginShow"
-				:height="1000"
-				:is-rounded-header="false"
-				@closeBottomSheet="closeBottomSheetOrigin"
-			>
-				<template slot="bottom-sheet-header">
-					<div class="header">
-						<Row justify-content="space-between">
-							<TextView custom-class="max-line-1 font-16" font-weight="500"
-								>Tujuan</TextView
-							>
-							<img
-								:src="icons.roundedCloseIcon"
-								width="25"
-								@click="closeBottomSheetOrigin"
-							/>
-						</Row>
-					</div>
-				</template>
-				<template slot="bottom-sheet-body">
-					<div class="body">
-						<Column cols="12">
-							<TextInput
-								type="text"
-								place-holder="Mau ke mana?"
-								name="origin"
-								field="origin"
-								:value="keywoard.origin"
-								border-radius="10"
-								@onChange="onChange"
-								@clearValue="
-									clearValue({
-										field: 'origin',
-										defaultValue: '',
-									})
-								"
-							/>
-						</Column>
-						<Column
-							v-if="locationFilter && locationFilter.length"
-							custom-class="mt-10"
-						>
-							<Row
-								v-for="(item, index) in locationFilter"
-								:key="index"
-								custom-class="mt-10"
-								:on-click="setValue"
-								:payload-custom="
-									JSON.stringify({ field: 'origin', value: item.name })
-								"
-							>
-								<Column col="9">
-									<Row>
-										<TextView
-											custom-class="max-line-1 font-14"
-											font-weight="400"
-											>{{ item.name }}</TextView
-										>
-									</Row>
-									<Row>
-										<TextView
-											custom-class="max-line-1 font-12"
-											font-color="manatee"
-											>{{ item.country }}</TextView
-										>
-									</Row>
-								</Column>
-								<Column col="3" align-items="center" justify-content="center">
-									<Row custom-class="py-5 px-20" background="heather">
-										<TextView
-											custom-class="max-line-1 font-12"
-											font-color="white"
-											>Region</TextView
-										>
-									</Row>
-									<Row>
-										<TextView
-											custom-class="max-line-1 font-12"
-											font-color="manatee"
-											>{{ item.property }} properti</TextView
-										>
-									</Row>
-								</Column>
+			<client-only>
+				<!-- origin location -->
+				<BottomSheet
+					:visible="isBottomSheetOriginShow"
+					@closeBottomSheet="closeBottomSheetOrigin"
+				>
+					<template slot="bottom-sheet-header">
+						<div class="header p-10">
+							<Row justify-content="space-between">
+								<TextView custom-class="max-line-1 font-16" font-weight="500"
+									>Tujuan</TextView
+								>
+								<img
+									:src="icons.roundedCloseIcon"
+									width="25"
+									@click="closeBottomSheetOrigin"
+								/>
 							</Row>
-						</Column>
-						<Row
-							v-else
-							custom-class="mt-20"
-							align-items="center"
-							justify-content="center"
-						>
-							<TextView custom-class="max-line-1 font-12" font-color="manatee"
-								>Destination not found</TextView
+						</div>
+					</template>
+					<template slot="bottom-sheet-body">
+						<div class="body p-10">
+							<Column cols="12">
+								<TextInput
+									type="text"
+									place-holder="Mau ke mana?"
+									name="origin"
+									field="origin"
+									:value="keywoard.origin"
+									border-radius="10"
+									@onChange="onChange"
+									@clearValue="
+										clearValue({
+											field: 'origin',
+											defaultValue: '',
+										})
+									"
+								/>
+							</Column>
+							<Column
+								v-if="locationFilter && locationFilter.length"
+								custom-class="mt-10"
 							>
-						</Row>
-					</div>
-				</template>
-			</BottomSheet>
+								<Row
+									v-for="(item, index) in locationFilter"
+									:key="index"
+									custom-class="mt-10"
+									:on-click="setValue"
+									:payload-custom="
+										JSON.stringify({ field: 'origin', value: item.name })
+									"
+								>
+									<Column col="9">
+										<Row>
+											<TextView
+												custom-class="max-line-1 font-14"
+												font-weight="400"
+												>{{ item.name }}</TextView
+											>
+										</Row>
+										<Row>
+											<TextView
+												custom-class="max-line-1 font-12"
+												font-color="manatee"
+												>{{ item.country }}</TextView
+											>
+										</Row>
+									</Column>
+									<Column col="3" align-items="center" justify-content="center">
+										<Row custom-class="py-5 px-20" background="heather">
+											<TextView
+												custom-class="max-line-1 font-12"
+												font-color="white"
+												>Region</TextView
+											>
+										</Row>
+										<Row>
+											<TextView
+												custom-class="max-line-1 font-12"
+												font-color="manatee"
+												>{{ item.property }} properti</TextView
+											>
+										</Row>
+									</Column>
+								</Row>
+							</Column>
+							<Row
+								v-else
+								custom-class="mt-20"
+								align-items="center"
+								justify-content="center"
+							>
+								<TextView custom-class="max-line-1 font-12" font-color="manatee"
+									>Destination not found</TextView
+								>
+							</Row>
+						</div>
+					</template>
+				</BottomSheet>
 
-			<!-- destination location -->
-			<BottomSheet
-				:visible="isBottomSheetDestinationShow"
-				:height="1000"
-				:is-rounded-header="false"
-				@closeBottomSheet="closeBottomSheetDestination"
-			>
-				<template slot="bottom-sheet-header">
-					<div class="header">
-						<Row justify-content="space-between">
-							<TextView custom-class="max-line-1 font-16" font-weight="500"
-								>Tujuan</TextView
-							>
-							<img
-								:src="icons.roundedCloseIcon"
-								width="25"
-								@click="closeBottomSheetDestination"
-							/>
-						</Row>
-					</div>
-				</template>
-				<template slot="bottom-sheet-body">
-					<div class="body">
-						<Column cols="12">
-							<TextInput
-								type="text"
-								place-holder="Mau ke mana?"
-								name="destination"
-								field="destination"
-								:value="keywoard.destination"
-								border-radius="10"
-								@onChange="onChange"
-								@clearValue="
-									clearValue({
-										field: 'destination',
-										defaultValue: '',
-									})
-								"
-							/>
-						</Column>
-						<Column
-							v-if="locationFilter && locationFilter.length"
-							custom-class="mt-10"
-						>
-							<Row
-								v-for="(item, index) in locationFilter"
-								:key="index"
-								custom-class="mt-10"
-								:on-click="setValue"
-								:payload-custom="
-									JSON.stringify({ field: 'destination', value: item.name })
-								"
-							>
-								<Column col="9">
-									<Row>
-										<TextView
-											custom-class="max-line-1 font-14"
-											font-weight="400"
-											>{{ item.name }}</TextView
-										>
-									</Row>
-									<Row>
-										<TextView
-											custom-class="max-line-1 font-12"
-											font-color="manatee"
-											>{{ item.country }}</TextView
-										>
-									</Row>
-								</Column>
-								<Column col="3" align-items="center" justify-content="center">
-									<Row custom-class="py-5 px-20" background="heather">
-										<TextView
-											custom-class="max-line-1 font-12"
-											font-color="white"
-											>Region</TextView
-										>
-									</Row>
-									<Row>
-										<TextView
-											custom-class="max-line-1 font-12"
-											font-color="manatee"
-											>{{ item.property }} properti</TextView
-										>
-									</Row>
-								</Column>
+				<!-- destination location -->
+				<BottomSheet
+					:visible="isBottomSheetDestinationShow"
+					@closeBottomSheet="closeBottomSheetDestination"
+				>
+					<template slot="bottom-sheet-header">
+						<div class="header p-10">
+							<Row justify-content="space-between">
+								<TextView custom-class="max-line-1 font-16" font-weight="500"
+									>Tujuan</TextView
+								>
+								<img
+									:src="icons.roundedCloseIcon"
+									width="25"
+									@click="closeBottomSheetDestination"
+								/>
 							</Row>
-						</Column>
-						<Row
-							v-else
-							custom-class="mt-20"
-							align-items="center"
-							justify-content="center"
-						>
-							<TextView custom-class="max-line-1 font-12" font-color="manatee"
-								>Destination not found</TextView
+						</div>
+					</template>
+					<template slot="bottom-sheet-body">
+						<div class="body p-10">
+							<Column cols="12">
+								<TextInput
+									type="text"
+									place-holder="Mau ke mana?"
+									name="destination"
+									field="destination"
+									:value="keywoard.destination"
+									border-radius="10"
+									@onChange="onChange"
+									@clearValue="
+										clearValue({
+											field: 'destination',
+											defaultValue: '',
+										})
+									"
+								/>
+							</Column>
+							<Column
+								v-if="locationFilter && locationFilter.length"
+								custom-class="mt-10"
 							>
-						</Row>
-					</div>
-				</template>
-			</BottomSheet>
+								<Row
+									v-for="(item, index) in locationFilter"
+									:key="index"
+									custom-class="mt-10"
+									:on-click="setValue"
+									:payload-custom="
+										JSON.stringify({ field: 'destination', value: item.name })
+									"
+								>
+									<Column col="9">
+										<Row>
+											<TextView
+												custom-class="max-line-1 font-14"
+												font-weight="400"
+												>{{ item.name }}</TextView
+											>
+										</Row>
+										<Row>
+											<TextView
+												custom-class="max-line-1 font-12"
+												font-color="manatee"
+												>{{ item.country }}</TextView
+											>
+										</Row>
+									</Column>
+									<Column col="3" align-items="center" justify-content="center">
+										<Row custom-class="py-5 px-20" background="heather">
+											<TextView
+												custom-class="max-line-1 font-12"
+												font-color="white"
+												>Region</TextView
+											>
+										</Row>
+										<Row>
+											<TextView
+												custom-class="max-line-1 font-12"
+												font-color="manatee"
+												>{{ item.property }} properti</TextView
+											>
+										</Row>
+									</Column>
+								</Row>
+							</Column>
+							<Row
+								v-else
+								custom-class="mt-20"
+								align-items="center"
+								justify-content="center"
+							>
+								<TextView custom-class="max-line-1 font-12" font-color="manatee"
+									>Destination not found</TextView
+								>
+							</Row>
+						</div>
+					</template>
+				</BottomSheet>
+			</client-only>
 		</Column>
 	</div>
 </template>

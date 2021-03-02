@@ -5,8 +5,8 @@ export default {
 		Column: () => import('~/views/ui/Column'),
 		Row: () => import('~/views/ui/Row'),
 		TextView: () => import('~/views/ui/TextView'),
-		BottomSheet: () => import('~/views/ui/BottomSheet'),
 		TextInput: () => import('~/views/ui/TextInput'),
+		BottomSheet: () => import('~/views/ui/BottomSheet'),
 	},
 	data() {
 		return {
